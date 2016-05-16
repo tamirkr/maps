@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body ng-controller="mainCtrl">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+        <ui-gmap-markers models="markers" coords="'coords'" >
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
+
+    <ul class="list-unstyled">
+        <li ng-repeat="marker in markers">
+            <p>{{ marker.coords }}</p>
+            <a ng-click="deleteMarker($index)">delete</a>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+    <script src="http://maps.googleapis.com/maps/api/js?language=he"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
